@@ -1,3 +1,4 @@
+
 import React, { createContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Components/Login/Login';
@@ -13,10 +14,16 @@ import {
 
 export const UserContext = createContext();
 
+import React from 'react';
+import Homepage from './pages/Homepage/Homepage';
+import './App.css';
+
+
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
 
   return (
+
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
@@ -28,6 +35,11 @@ const App = () => {
         </Switch>
       </Router>
      </UserContext.Provider>
+
+    <div>
+      <Homepage />
+    </div>
+
   );
 };
 
